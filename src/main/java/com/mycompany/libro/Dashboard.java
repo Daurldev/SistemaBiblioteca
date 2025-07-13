@@ -1,13 +1,12 @@
 package com.mycompany.libro;
 
-import com.mycompany.libro.view.Landing;
-import com.mycompany.libro.view.Principal;
+import com.mycompany.libro.view.viewPrestamo;
+import com.mycompany.libro.view.viewPrincipal;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.Timer;               
 /**
@@ -42,7 +41,6 @@ public class Dashboard extends javax.swing.JFrame {
         Background = new javax.swing.JPanel();
         Menú = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         Principal = new javax.swing.JButton();
         Prestamo = new javax.swing.JButton();
         Devoluciones = new javax.swing.JButton();
@@ -57,8 +55,9 @@ public class Dashboard extends javax.swing.JFrame {
         Mensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1032, 641));
-        setPreferredSize(new java.awt.Dimension(1032, 641));
+        setMaximumSize(new java.awt.Dimension(1080, 720));
+        setMinimumSize(new java.awt.Dimension(1080, 720));
+        setResizable(false);
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,7 +67,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Biblioteca");
+        jLabel1.setText("My Book");
 
         Principal.setBackground(new java.awt.Color(204, 204, 204));
         Principal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -147,28 +146,22 @@ public class Dashboard extends javax.swing.JFrame {
         MenúLayout.setHorizontalGroup(
             MenúLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Prestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Devoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Devoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
             .addComponent(Usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Reportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenúLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-            .addGroup(MenúLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(Principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Libros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenúLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         MenúLayout.setVerticalGroup(
             MenúLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenúLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(80, 80, 80)
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
                 .addComponent(Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Prestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,7 +173,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         Header.setBackground(new java.awt.Color(255, 0, 51));
@@ -244,13 +237,13 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+                    .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
                     .addComponent(Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
-                .addComponent(Menú, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
+                .addComponent(Menú, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
                 .addGap(4, 4, 4))
             .addGroup(BackgroundLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
@@ -258,7 +251,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                .addComponent(Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,12 +270,12 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrestamoActionPerformed
-        ShowJPanel(new Landing());
+        ShowJPanel(new viewPrestamo());
 
     }//GEN-LAST:event_PrestamoActionPerformed
 
     private void PrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrincipalActionPerformed
-        ShowJPanel(new Principal());
+        ShowJPanel(new viewPrincipal());
     }//GEN-LAST:event_PrincipalActionPerformed
 
     private void ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesActionPerformed
@@ -320,7 +313,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel horalocal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
  public void SetDate() {
@@ -334,7 +326,7 @@ public class Dashboard extends javax.swing.JFrame {
 }
  
   private void InitContent(){
-        ShowJPanel(new Principal());
+        ShowJPanel(new viewPrincipal());
     }
   
   private void ShowJPanel(JPanel p1){
