@@ -1,13 +1,23 @@
 package com.mycompany.libro;
-import com.formdev.flatlaf.themes.FlatMacLightLaf;
-import javax.swing.SwingUtilities;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import datos.conexionSQL;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Libro {
+     private static Connection conexion;
 
     public static void main(String[] args) {
-       SwingUtilities.invokeLater(() ->{
-           FlatMacLightLaf.setup();
-           new Dashboard().setVisible(true);
-       });
+           FlatMacDarkLaf.setup();
+           new Login().setVisible(true);
+          conexionSQL conectar = conexionSQL.getInstancia();
+          try {
+           conexion = conectar.getConexion();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+         
+        
     }
 }
