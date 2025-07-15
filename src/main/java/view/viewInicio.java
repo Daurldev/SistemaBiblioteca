@@ -8,12 +8,12 @@ package view;
  *
  * @author dubig
  */
-public class viewPrincipal extends javax.swing.JPanel {
+public class viewInicio extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    public viewPrincipal() {
+    public viewInicio() {
         initComponents();
     }
 

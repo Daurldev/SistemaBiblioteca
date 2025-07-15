@@ -1,7 +1,7 @@
 package presentacion;
 
 import view.viewPrestamo;
-import view.viewPrincipal;
+import view.viewInicio;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -10,6 +10,9 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
 import javax.swing.Timer;               
 import utilidades.BtnChangeColor;
+import view.viewDevolucion;
+import view.viewLibro;
+import view.viewUsuario;
 /**
  *
  * @author dubig
@@ -130,14 +133,17 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
-            .addComponent(Jgrid, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addGroup(MenúLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Jgrid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         MenúLayout.setVerticalGroup(
             MenúLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenúLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(jLabel1)
-                .addGap(60, 60, 60)
+                .addGap(58, 58, 58)
                 .addComponent(Jgrid, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -226,34 +232,43 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        ShowJPanel(new viewPrincipal());
+        Header.setVisible(true);
+        ShowJPanel(new viewInicio());
         BtnChangeColor.actualizarColoresBotones(btnInicio,
                 btnInicio, btnUsuarios, btnLibros, btnPrestamos, btnDevoluciones
         );
+        
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-       BtnChangeColor.actualizarColoresBotones(btnInicio,
-                btnInicio, btnUsuarios, btnLibros, btnPrestamos, btnDevoluciones
+        Header.setVisible(false);
+        ShowJPanel(new viewUsuario());
+        BtnChangeColor.actualizarColoresBotones(btnUsuarios,
+                btnUsuarios, btnInicio, btnLibros, btnPrestamos, btnDevoluciones
         );
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
-       BtnChangeColor.actualizarColoresBotones(btnInicio,
-                btnInicio, btnUsuarios, btnLibros, btnPrestamos, btnDevoluciones
+        Header.setVisible(false);
+        ShowJPanel(new viewLibro());
+        BtnChangeColor.actualizarColoresBotones(btnLibros,
+                btnLibros, btnUsuarios, btnInicio, btnPrestamos, btnDevoluciones
         );
     }//GEN-LAST:event_btnLibrosActionPerformed
 
     private void btnPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamosActionPerformed
+        Header.setVisible(true);
         ShowJPanel(new viewPrestamo());
-         BtnChangeColor.actualizarColoresBotones(btnInicio,
-                btnInicio, btnUsuarios, btnLibros, btnPrestamos, btnDevoluciones
+         BtnChangeColor.actualizarColoresBotones(btnPrestamos,
+                btnPrestamos, btnUsuarios, btnLibros, btnInicio, btnDevoluciones
         );
     }//GEN-LAST:event_btnPrestamosActionPerformed
 
     private void btnDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucionesActionPerformed
-         BtnChangeColor.actualizarColoresBotones(btnInicio,
-                btnInicio, btnUsuarios, btnLibros, btnPrestamos, btnDevoluciones
+        Header.setVisible(false);
+        ShowJPanel(new viewDevolucion());
+        BtnChangeColor.actualizarColoresBotones(btnDevoluciones,
+                btnDevoluciones, btnUsuarios, btnLibros, btnPrestamos, btnInicio
         );
     }//GEN-LAST:event_btnDevolucionesActionPerformed
 
@@ -289,7 +304,6 @@ public class Dashboard extends javax.swing.JFrame {
 }
  
   private void InitContent(){
-        ShowJPanel(new viewPrincipal());
     }
   
   private void ShowJPanel(JPanel Jpanel){

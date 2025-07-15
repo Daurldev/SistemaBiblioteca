@@ -8,12 +8,12 @@ package view;
  *
  * @author Alex
  */
-public class viewLibro extends javax.swing.JPanel {
+public class viewDevolucion extends javax.swing.JPanel {
 
     /**
-     * Creates new form viewLibro
+     * Creates new form viewDevolucion
      */
-    public viewLibro() {
+    public viewDevolucion() {
         initComponents();
     }
 

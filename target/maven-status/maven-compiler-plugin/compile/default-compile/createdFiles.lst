@@ -15,6 +15,7 @@ presentacion\Dashboard$5.class
 view\viewLibro.class
 presentacion\Dashboard.class
 presentacion\Dashboard$4.class
+view\viewDevolucion.class
 presentacion\Dashboard$3.class
-view\viewPrincipal.class
+view\viewInicio.class
 presentacion\Login$2.class

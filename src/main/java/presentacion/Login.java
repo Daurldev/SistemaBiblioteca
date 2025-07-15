@@ -223,6 +223,14 @@ public class Login extends javax.swing.JFrame {
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
         // TODO add your handling code here:
+        if(Username.getText().equals("admin")){
+            if(String.valueOf(password.getPassword()).equals("admin")){
+                new Dashboard().setVisible(true);
+                super.dispose();
+            }
+        } 
+            
+       
        
     }//GEN-LAST:event_SignInActionPerformed
 
